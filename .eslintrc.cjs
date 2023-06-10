@@ -4,10 +4,8 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
-    "prettier"
+    'plugin:react/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -25,7 +23,7 @@ module.exports = {
         namedComponents: "arrow-function",
         unnamedComponents: "arrow-function",
       },
-    ]
+    ],
   },
   ignorePatterns: [
     ".eslintrc.cjs",
