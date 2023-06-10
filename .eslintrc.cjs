@@ -29,6 +29,7 @@ module.exports = {
   },
   ignorePatterns: [
     ".eslintrc.cjs",
-    "vite.config.ts"
-  ]
+    "vite.config.ts",
+    "api/*"
+  ],
 };
