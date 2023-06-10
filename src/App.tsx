@@ -1,14 +1,11 @@
-import { useEffect } from 'react'
-import client from './libs/client'
+import { Provider } from 'react-redux'
+import { PrefectureSelector } from './features/prefectures/components/PrefectureSelector'
+import { store } from './stores/store'
 
-const App = () => {
-  useEffect(() => {
-    ;(async () => {
-      const prefectures = await client.get('prefectures')
-      console.log(prefectures)
-    })()
-  }, [])
-  return <>Hello World</>
-}
+const App = () => (
+  <Provider store={store}>
+    <PrefectureSelector />
+  </Provider>
+)
 
 export default App
