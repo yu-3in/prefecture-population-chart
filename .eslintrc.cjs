@@ -24,6 +24,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'react/prop-types': 'off',
   },
   ignorePatterns: [
     '.eslintrc.cjs',
