@@ -1,14 +1,8 @@
-import { useEffect } from 'react'
-import client from './libs/client'
+import { ThemeProvider } from '@emotion/react'
+import { theme } from './theme'
 
 const App = () => {
-  useEffect(() => {
-    ;(async () => {
-      const prefectures = await client.get('prefectures')
-      console.log(prefectures)
-    })()
-  }, [])
-  return <>Hello World</>
+  return <ThemeProvider theme={theme}>Hello world</ThemeProvider>
 }
 
 export default App
