@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import RESAS_API from '@/consts/api'
-import { Prefecture } from '../types/prefecture'
+import { Prefecture } from '../types/Prefecture'
 
 export type FetchPrefecturesResponse = {
   message?: string
@@ -10,8 +10,7 @@ export type FetchPrefecturesResponse = {
 export const prefectureApi = createApi({
   reducerPath: 'prefectureApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: RESAS_API.baseUrl,
-    headers: RESAS_API.headers,
+    baseUrl: RESAS_API.baseURL,
   }),
   endpoints: (builder) => ({
     fetchPrefectures: builder.query<Prefecture[], void>({
