@@ -1,5 +1,5 @@
 import { usePrefecture } from '../hooks/usePrefecture'
-import { Prefecture } from '../types/prefecture'
+import { Prefecture } from '../types/Prefecture'
 
 export type PrefectureCheckboxProps = { prefecture: Prefecture }
 

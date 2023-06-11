@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { prefectureApi, useFetchPrefecturesQuery } from '../apis/prefectureApi'
-import { Prefecture } from '../types/prefecture'
+import { Prefecture } from '../types/Prefecture'
 import { useAppDispatch } from '@/stores/store'
 
 export const usePrefecture = (prefCode: number) => {

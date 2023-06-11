@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import RESAS_API from '@/consts/api'
-import { Prefecture } from '../types/prefecture'
+import { Prefecture } from '../types/Prefecture'
 
 export type FetchPrefecturesResponse = {
   message?: string
