@@ -11,8 +11,8 @@ export const PrefectureCheckbox: React.FC<PrefectureCheckboxProps> = ({ prefectu
   const [trigger] = useLazyFetchPopulationQuery()
 
   const handleChange = useCallback(async () => {
-    togglePrefectureSelection()
     await trigger(prefecture.prefCode, true)
+    togglePrefectureSelection()
   }, [prefecture.prefCode])
 
   return (
