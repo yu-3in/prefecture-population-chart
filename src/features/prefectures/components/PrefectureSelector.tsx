@@ -24,4 +24,5 @@ const list = css`
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   list-style: none;
   padding-left: 0;
+  gap: 1rem;
 `
