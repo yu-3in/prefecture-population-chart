@@ -1,8 +1,5 @@
 const RESAS_API = {
-  baseUrl: import.meta.env.DEV ? 'http://localhost:3000/api/' : '/api/',
-  headers: {
-    'X-API-KEY': import.meta.env.VITE_RESAS_API_KEY,
-  },
+  baseURL: import.meta.env.DEV ? 'http://localhost:3000/api/' : '/api/',
 }
 
 export default RESAS_API
