@@ -89,6 +89,13 @@ export const defaultOptions: Highcharts.Options = {
       },
     ],
   },
+  series: [
+    {
+      type: 'line',
+      data: [],
+      showInLegend: true,
+    },
+  ],
 }
 
 export const useHighCharts = () => {
