@@ -9,7 +9,6 @@ const selectedPopulationCategorySlice = createSlice({
   reducers: {
     selectPopulationCategory: (state, action: PayloadAction<PopulationLabel>) => {
       state.selected = action.payload
-      console.log(action.payload)
     },
   },
 })
