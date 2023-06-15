@@ -15,7 +15,7 @@ export const CardTabs: React.FC<CardTabsProps> = ({ children, value, onChange })
       {React.Children.map(children, (child) =>
         React.cloneElement(child as React.ReactElement<CardTabProps>, {
           selected: value === (child as React.ReactElement<CardTabProps>).props.value,
-          onClick: () => value && onChange(value),
+          onClick: () => value && onChange((child as React.ReactElement<CardTabProps>).props.value),
         })
       )}
     </div>
