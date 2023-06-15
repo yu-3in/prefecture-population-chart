@@ -25,7 +25,7 @@ export const usePopulationLineChart = () => {
       sizeAxis: { maxValue: 1 },
       backgroundColor: theme.colors.background,
       datalessRegionColor: theme.colors.background,
-      colors: isSelected ? ['#fff', 'green'] : ['#fff'],
+      colors: isSelected ? [theme.colors.white, theme.colors.green] : [theme.colors.white],
       tooltip: {
         trigger: 'none', // ツールチップを非表示にする
       },

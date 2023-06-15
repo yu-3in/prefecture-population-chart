@@ -7,6 +7,7 @@ import { PopulationLineChart } from './features/populations/components/Populatio
 import { Container } from './components/layouts/Container'
 import { Card } from './components/card'
 import { PrefectureGeoChart } from './features/prefectures/components/PrefectureGeoChart'
+import { PopulationCategoryCardTabs } from './features/populations/components/PopulationCategoryTabs'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
                 </div>
               </div>
               <Card>
+                <PopulationCategoryCardTabs />
                 <PopulationLineChart />
               </Card>
             </div>
