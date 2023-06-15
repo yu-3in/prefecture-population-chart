@@ -10,6 +10,6 @@ export const Container: React.FC<ContainerProps> = ({ children }) => {
 
 const container = css`
   width: 90%;
-  max-width: 800px;
+  max-width: 1280px;
   margin: 0 auto;
 `

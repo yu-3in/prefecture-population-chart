@@ -6,6 +6,7 @@ import { PrefectureSelector } from './features/prefectures/components/Prefecture
 import { PopulationLineChart } from './features/populations/components/PopulationLineChart'
 import { Container } from './components/layouts/Container'
 import { Card } from './components/card'
+import { PrefectureGeoChart } from './features/prefectures/components/PrefectureGeoChart'
 
 const App = () => {
   return (
@@ -14,12 +15,17 @@ const App = () => {
         <main css={main}>
           <Container>
             <div css={content}>
-              <Card>
-                <Card.Head>都道府県を選択してください</Card.Head>
-                <Card.Content>
-                  <PrefectureSelector />
-                </Card.Content>
-              </Card>
+              <div css={prefectureLayout}>
+                <Card css={prefectureSelector}>
+                  <Card.Head>都道府県を選択してください</Card.Head>
+                  <Card.Content>
+                    <PrefectureSelector />
+                  </Card.Content>
+                </Card>
+                <div css={prefectureGeoChart}>
+                  <PrefectureGeoChart />
+                </div>
+              </div>
               <Card>
                 <PopulationLineChart />
               </Card>
@@ -41,6 +47,25 @@ const content = css`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+`
+
+const prefectureLayout = css`
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 5fr 4fr;
+  @media screen and (max-width: 1160px) {
+    grid-template-columns: 1fr;
+  }
+`
+
+const prefectureSelector = css`
+  z-index: 1;
+`
+
+const prefectureGeoChart = css`
+  @media screen and (max-width: 1160px) {
+    display: none;
+  }
 `
 
 export default App

@@ -110,7 +110,6 @@ export const useHighCharts = () => {
           .filter((prefecture) => prefecture.isSelected)
           .map(async (prefecture) => {
             const population = (await trigger(prefecture.prefCode, true)).data?.data
-            console.log('population', population)
             const data = population
               ? population
                   // TODO: 年少人口以外も動的に切り替えられるようにする
