@@ -7,6 +7,8 @@ import { PopulationLineChart } from './features/populations/components/Populatio
 import { Container } from './components/layouts/Container'
 import { Card } from './components/card'
 import { PrefectureGeoChart } from './features/prefectures/components/PrefectureGeoChart'
+import { CardTabs } from './components/card/CardTabs'
+import { CardTab } from './components/card/CardTab'
 
 const App = () => {
   return (
@@ -27,6 +29,12 @@ const App = () => {
                 </div>
               </div>
               <Card>
+                <CardTabs value="総人口" onChange={() => {}}>
+                  <CardTab value="総人口">総人口</CardTab>
+                  <CardTab value="年少人口">年少人口</CardTab>
+                  <CardTab value="生産年齢人口">生産年齢人口</CardTab>
+                  <CardTab value="老年人口">老年人口</CardTab>
+                </CardTabs>
                 <PopulationLineChart />
               </Card>
             </div>
