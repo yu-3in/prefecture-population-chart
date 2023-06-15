@@ -25,8 +25,13 @@ const tab = css`
   border: none;
   border-radius: 0.5rem 0.5rem 0 0;
   height: 44px;
-  padding: 0 1rem;
+  padding: 0 0.75rem;
+  margin-top: 0.25rem;
   cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 1rem;
+  }
 `
 
 const tabSelected = css`

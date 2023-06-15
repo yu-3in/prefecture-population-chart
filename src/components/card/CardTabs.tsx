@@ -23,9 +23,21 @@ export const CardTabs: React.FC<CardTabsProps> = ({ children, value, onChange })
 }
 
 const tablist = css`
-  margin: -1rem -3rem 1rem;
+  margin: -1rem -1rem 1rem;
   padding: 0 1rem;
   display: flex;
-  gap: 0.5rem;
+
   border-bottom: 1px solid ${theme.colors.border};
+  overflow-x: scroll;
+  white-space: nowrap;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    height: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: -1rem -3rem 1rem;
+    gap: 0.5rem;
+  }
 `
