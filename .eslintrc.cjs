@@ -25,6 +25,8 @@ module.exports = {
       },
     ],
     'react/prop-types': 'off',
+    "react/no-unknown-property": ["error", { "ignore": ["css"] }]
+
   },
   ignorePatterns: [
     '.eslintrc.cjs',

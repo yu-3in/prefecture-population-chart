@@ -13,7 +13,7 @@ export const PrefectureCheckbox: React.FC<PrefectureCheckboxProps> = ({ prefectu
   const handleChange = useCallback(async () => {
     await trigger(prefecture.prefCode, true)
     togglePrefectureSelection()
-  }, [prefecture.prefCode])
+  }, [prefecture.prefCode, trigger, togglePrefectureSelection])
 
   return (
     <div css={checkbox}>
