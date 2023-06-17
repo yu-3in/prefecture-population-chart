@@ -2,7 +2,7 @@ import Highcharts from 'highcharts'
 import { useCallback, useEffect, useState } from 'react'
 import { useLazyFetchPopulationQuery } from '../apis/populationApi'
 import { usePrefectures } from '@/features/prefectures/hooks/usePrefectures'
-import { useAppSelector } from '@/stores/store'
+import { PopulationLabel } from '../types/Population'
 
 // config
 export const colors = ['#7FD13B', '#EA157A', '#00ADDC', '#FEB80A', '#6D83BF']
@@ -10,7 +10,7 @@ export const minYear = 1975
 export const currentYear = new Date().getFullYear()
 export const maxYear = currentYear - (currentYear % 5)
 export const markerSymbols = ['circle', 'square', 'diamond', 'triangle', 'triangle-down']
-export const createOptions = (selectedPopulationCategory: string): Highcharts.Options => ({
+export const createOptions = (category: PopulationLabel): Highcharts.Options => ({
   title: {
     text: undefined,
   },
@@ -29,7 +29,7 @@ export const createOptions = (selectedPopulationCategory: string): Highcharts.Op
   },
   yAxis: {
     title: {
-      text: `${selectedPopulationCategory}（万人）`,
+      text: `${category}（万人）`,
       style: {
         fontWeight: 'normal',
       },
@@ -99,15 +99,10 @@ export const createOptions = (selectedPopulationCategory: string): Highcharts.Op
   ],
 })
 
-export const useHighCharts = () => {
+export const useHighCharts = (category: PopulationLabel) => {
   const [trigger] = useLazyFetchPopulationQuery()
   const { data: prefectures } = usePrefectures()
-  const selectedPopulationCategory = useAppSelector(
-    (state) => state.selectedPopulationCategory.selected
-  )
-  const [options, setOptions] = useState<Highcharts.Options>(
-    createOptions(selectedPopulationCategory)
-  )
+  const [options, setOptions] = useState<Highcharts.Options>(createOptions(category))
 
   const createSeries = useCallback(async () => {
     if (prefectures) {
@@ -118,7 +113,7 @@ export const useHighCharts = () => {
             const population = (await trigger(prefecture.prefCode, true)).data?.data
             const data = population
               ? population
-                  .find(({ label }) => label === selectedPopulationCategory)
+                  .find(({ label }) => label === category)
                   ?.data.map(({ year, value }) => [year, value])
               : undefined
 
@@ -136,13 +131,13 @@ export const useHighCharts = () => {
             }
           })
       )
-      setOptions({ ...createOptions(selectedPopulationCategory), series: newSeries })
-    } else {
+      const newOptions = createOptions(category)
+      setOptions({ ...newOptions, series: newSeries })
     }
-  }, [prefectures, selectedPopulationCategory])
+  }, [prefectures, category, trigger])
 
   useEffect(() => {
     createSeries()
-  }, [prefectures, selectedPopulationCategory])
+  }, [prefectures, category, createSeries])
   return { options, minYear, maxYear }
 }
