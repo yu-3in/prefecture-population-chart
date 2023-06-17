@@ -1,23 +1,37 @@
 import { theme } from '@/theme'
 import { css } from '@emotion/react'
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { CardTabProps } from './CardTab'
 
 export type CardTabsProps = {
   children: React.ReactNode
   value?: string
-  onChange: (value: string) => void
+  onChange?: (value: string) => void
 }
 
 export const CardTabs: React.FC<CardTabsProps> = ({ children, value, onChange }) => {
+  const [selected, setSelected] = useState(value)
+  const handleChange = useCallback(
+    (value: string) => {
+      setSelected(value)
+      onChange && onChange(value)
+    },
+    [onChange]
+  )
+
   return (
-    <div css={tablist} role="tablist">
-      {React.Children.map(children, (child) =>
-        React.cloneElement(child as React.ReactElement<CardTabProps>, {
-          selected: value === (child as React.ReactElement<CardTabProps>).props.value,
-          onClick: () => value && onChange((child as React.ReactElement<CardTabProps>).props.value),
-        })
-      )}
+    <div>
+      <div css={tablist} role="tablist">
+        {React.Children.map(
+          children,
+          (child) =>
+            React.isValidElement<CardTabProps>(child) &&
+            React.cloneElement(child, {
+              selected: selected === child.props.value,
+              onClick: () => handleChange(child.props.value),
+            })
+        )}
+      </div>
     </div>
   )
 }
