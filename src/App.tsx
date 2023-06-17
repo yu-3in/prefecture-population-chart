@@ -3,11 +3,10 @@ import { store } from './stores/store'
 import { theme } from './theme'
 import { ThemeProvider, css } from '@emotion/react'
 import { PrefectureSelector } from './features/prefectures/components/PrefectureSelector'
-import { PopulationLineChart } from './features/populations/components/PopulationLineChart'
 import { Container } from './components/layouts/Container'
 import { Card } from './components/card'
 import { PrefectureGeoChart } from './features/prefectures/components/PrefectureGeoChart'
-import { PopulationCategoryCardTabs } from './features/populations/components/PopulationCategoryTabs'
+import { PopulationCategoryLineChartCard } from './features/populations/components/PopulationCategoryLineChartCard'
 
 const App = () => {
   return (
@@ -27,10 +26,7 @@ const App = () => {
                   <PrefectureGeoChart />
                 </div>
               </div>
-              <Card>
-                <PopulationCategoryCardTabs />
-                <PopulationLineChart />
-              </Card>
+              <PopulationCategoryLineChartCard />
             </div>
           </Container>
         </main>
