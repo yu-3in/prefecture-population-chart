@@ -101,7 +101,7 @@ export const createOptions = (category: PopulationLabel): Highcharts.Options => 
 
 export const useHighCharts = (category: PopulationLabel) => {
   const [trigger] = useLazyFetchPopulationQuery()
-  const { data: prefectures } = usePrefectures()
+  const { data: prefectures, ...rest } = usePrefectures()
   const [options, setOptions] = useState<Highcharts.Options>(createOptions(category))
 
   const createSeries = useCallback(async () => {
@@ -139,5 +139,5 @@ export const useHighCharts = (category: PopulationLabel) => {
   useEffect(() => {
     createSeries()
   }, [prefectures, category, createSeries])
-  return { options, minYear, maxYear }
+  return { options, minYear, maxYear, ...rest }
 }
