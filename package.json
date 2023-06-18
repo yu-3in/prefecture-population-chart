@@ -10,7 +10,8 @@
     "lint:fix": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "format": "prettier \"**/*.+(js|json|yml|ts|tsx)\"",
     "format:fix": "prettier --write \"**/*.+(js|json|yml|ts|tsx)\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "@emotion/eslint-plugin": "^11.11.0",
@@ -25,8 +26,13 @@
     "react-redux": "^8.0.7"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/jest": "^29.5.2",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
+    "@types/testing-library__user-event": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.59.9",
     "@vercel/node": "^2.15.1",
@@ -42,9 +48,12 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "happy-dom": "^9.20.3",
+    "jest-extended": "^4.0.0",
     "prettier": "^2.8.8",
     "typescript": "*",
     "vercel": "^30.2.1",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "vitest": "^0.32.2"
   }
 }
