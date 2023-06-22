@@ -14,6 +14,7 @@ https://prefecture-population-chart.vercel.app/
 
 - npm または yarn がインストールされていること
 - 本リポジトリを clone または fork していること
+- コマンドラインから vercel が使用できる（ログインされている状態）
 
 以降 yarn で説明をしていきます。npm の場合は適宜読み替えてください。
 
@@ -33,6 +34,31 @@ $ cp .env.example .env
 
 ご自身の RESAS API KEY を `RESAS_API_KEY`にセットしてください。
 
+### vercel.json を作成
+
+ルートディレクトリ直下に`vercel.json`を作成し、以下の内容をコピペする。
+
+```vercel.json
+{
+  "description": "ローカル環境では、クライアント(localhost:3000)とAPIサーバ(localhost:5173)のURLが異なるためCORSが発生する。そのため、vercel.jsonでCORSの問題を解決している。CORSは本番環境では必要なため、.gitignoreにvercel.jsonを指定してpushしないようにしている。現状CORSの設定だけが記述されているが、今後他の設定が追加された場合はvercel.jsonをproductionへデプロイする必要があるのでCORS対策は別の方法を取る必要がある。",
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-API-KEY"
+        }
+      ]
+    }
+  ]
+}
+
+```
+
 ### ローカルサーバの起動
 
 フロントエンドサーバの起動
@@ -42,6 +68,8 @@ $ yarn dev
 ```
 
 ### バックエンドサーバの起動
+
+※ローカル環境のバックエンドサーバには Vercel を使用しています。そのため、Vercel がコマンドラインから使用できる必要があります。
 
 ```cmd
 $ yarn vercel dev
