@@ -14,7 +14,6 @@ https://prefecture-population-chart.vercel.app/
 
 - npm または yarn がインストールされていること
 - 本リポジトリを clone または fork していること
-- コマンドラインから vercel が使用できる（ログインされている状態）
 
 以降 yarn で説明をしていきます。npm の場合は適宜読み替えてください。
 
@@ -43,8 +42,6 @@ $ yarn dev
 ```
 
 ### バックエンドサーバの起動
-
-※ローカル環境のバックエンドサーバには Vercel を使用しています。そのため、Vercel がコマンドラインから使用できる必要があります。
 
 ```cmd
 $ yarn vercel dev
