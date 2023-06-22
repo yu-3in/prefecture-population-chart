@@ -40,7 +40,7 @@ $ cp .env.example .env
 
 ```vercel.json
 {
-  "description": "ローカル環境では、クライアント(localhost:3000)とAPIサーバ(localhost:5173)のURLが異なるためCORSが発生する。そのため、vercel.jsonでCORSの問題を解決している。CORSは本番環境では必要なため、.gitignoreにvercel.jsonを指定してpushしないようにしている。現状CORSの設定だけが記述されているが、今後他の設定が追加された場合はvercel.jsonをproductionへデプロイする必要があるのでCORS対策は別の方法を取る必要がある。",
+  "description": "ローカル環境では、クライアント(localhost:5173)とAPIサーバ(localhost:3000)のURLが異なるためCORSが発生する。そのため、vercel.jsonでCORSの問題を解決している。CORSは本番環境では必要なため、.gitignoreにvercel.jsonを指定してpushしないようにしている。現状CORSの設定だけが記述されているが、今後他の設定が追加された場合はvercel.jsonをproductionへデプロイする必要があるのでCORS対策は別の方法を取る必要がある。",
   "headers": [
     {
       "source": "/api/(.*)",
@@ -75,7 +75,7 @@ $ yarn dev
 $ yarn vercel dev
 ```
 
-http://localhost:3000 にアクセスすると画面が表示されます。
+http://localhost:5173 にアクセスすると画面が表示されます。
 
 ## Tips: 開発コマンド
 
